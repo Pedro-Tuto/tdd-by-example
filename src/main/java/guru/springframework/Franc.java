@@ -1,8 +1,7 @@
 package guru.springframework;
 
-public class Franc {
+public class Franc extends Money{
 
-    private int amount;
 
     public Franc (int amount){
 
@@ -13,10 +12,4 @@ public class Franc {
         return new Franc(amount * multiplier);
     }
 
-    public boolean equals(Object object){
-
-        Franc franc = (Franc) object;
-
-        return amount == franc.amount;
-    }
 }
