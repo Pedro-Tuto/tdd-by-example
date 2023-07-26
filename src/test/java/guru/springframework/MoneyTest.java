@@ -2,6 +2,7 @@ package guru.springframework;
 
 import org.junit.jupiter.api.Test;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -16,6 +17,15 @@ public class MoneyTest {
         assertEquals(Money.franc(10), fiveF.times(2));
     }
 
+
+    @Test
+    void testSimpleAddition(){
+        Money five = Money.dollar(5);
+        Expression sum = five.plus(five);
+        Bank bank = new Bank();
+        Money reduced = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(10), reduced);
+    }
     @Test
     void testEqualityDollar() {
         assertEquals(Money.dollar(5), Money.dollar(5));
